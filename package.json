@@ -4,9 +4,9 @@
   "description": "A lightweight CLI to test HTTP/HTTPS APIs",
   "main": "index.ts",
   "scripts": {
-	"build": "tsc",
-	"start": "ts-node src/index.ts",
-	"dev": "ts-node-dev --respawn src/index.ts"
+    "build": "tsc",
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon --exec 'npm run build' --watch src"
   },
   "repository": {
     "type": "git",
@@ -23,16 +23,19 @@
   },
   "homepage": "https://github.com/Nykenik24/ReqLite#readme",
   "dependencies": {
+    "axios": "^1.8.4",
     "chalk": "^4.1.2",
     "commander": "^13.1.0",
     "lowdb": "^7.0.1"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
+    "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"
   },
   "bin": {
-	"reql": "./dist/index.js"
+    "reql": "./dist/index.js"
   }
 }
