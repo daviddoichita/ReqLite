@@ -137,3 +137,6 @@ dist
 
 # reqlite (this project)
 .reqlite
+
+# releases
+release/
