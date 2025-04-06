@@ -27,7 +27,7 @@ export function getFormattedDate(): string {
   return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
 }
 
-type request = {
+export type ReqLiteRequest = {
   method: string;
   url: string;
   data: any;
@@ -35,7 +35,7 @@ type request = {
   date: string;
 };
 
-const requestDBdata: request[] = [];
+const requestDBdata: ReqLiteRequest[] = [];
 export const requestDB = JSONFileSyncPreset(".reqlite/requests.json", {
   requests: requestDBdata,
 });

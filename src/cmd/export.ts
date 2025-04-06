@@ -1,6 +1,6 @@
 import { Command } from "commander";
 import { requestDB } from "../utils";
-import { writeFile } from "fs/promises";
+import { writeFileSync } from "fs";
 
 export function exportCommand(opts: any) {
   const requestsJSON = JSON.stringify(
@@ -10,9 +10,7 @@ export function exportCommand(opts: any) {
   );
 
   if (opts.output) {
-    (async () => {
-      await writeFile(opts.output, requestsJSON, "utf-8");
-    })();
+    writeFileSync(opts.output, requestsJSON, "utf-8");
   } else {
     process.stdout.write(requestsJSON);
   }
