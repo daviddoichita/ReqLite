@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import { JSONFilePreset, JSONFileSyncPreset } from "lowdb/node";
+import { JSONFileSyncPreset } from "lowdb/node";
 
 export function statusCheck(status: number): string {
   if (status >= 200 && status < 300) {

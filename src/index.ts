@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 import { program } from "commander";
 import { registerReqCommand } from "./cmd/req/req";
 import { registerExportCommand } from "./cmd/export";
