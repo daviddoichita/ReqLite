@@ -1,6 +1,8 @@
 # ReqLite
 A VERY lightweight and user-friendly CLI to test HTTP/HTTPS APIs in a fast manner.
 
+Not to be confused with [`ReQl`](https://rethinkdb.com/docs/introduction-to-reql/) or [`reql`](https://www.npmjs.com/package/reql).
+
 ## Features:
 1. Quick request management: CURL power with a user-friendly approach.
 2. Save secrets locally: `.env`-like secret storing.
