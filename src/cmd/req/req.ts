@@ -5,12 +5,13 @@ import { registerPutCommand } from "./put";
 import { registerDeleteCommand } from "./delete";
 import { registerListCommand } from "./list";
 
-export function registerReqCommand(program: Command) {
-  const req = program.command("req");
+export function registerReqCommand(): Command {
+  const req = new Command("req");
   req.description("Send HTTP/HTTPS requests.");
   registerGetCommand(req);
   registerPostCommand(req);
   registerPutCommand(req);
   registerDeleteCommand(req);
   registerListCommand(req);
+  return req;
 }

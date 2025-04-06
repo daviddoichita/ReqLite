@@ -2,6 +2,7 @@
 
 import { program } from "commander";
 import { registerReqCommand } from "./cmd/req/req";
+import { registerExportCommand } from "./cmd/export";
 import fs from "fs";
 import chalk from "chalk";
 
@@ -10,7 +11,8 @@ program
   .description("A lightweight CLI to test HTTP/HTTPS APIs")
   .version("0.0.1");
 
-registerReqCommand(program);
+program.addCommand(registerReqCommand());
+program.addCommand(registerExportCommand());
 
 if (!fs.existsSync(".reqlite")) {
   fs.mkdir("./.reqlite", { recursive: true }, (err) => {
