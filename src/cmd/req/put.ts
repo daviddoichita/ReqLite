@@ -1,7 +1,9 @@
 import chalk from "chalk";
 import { Command } from "commander";
-import { saveRequest, statusCheck } from "../../utils";
+import { parseRequestData, saveRequest, statusCheck } from "../../utils";
 import axios from "axios";
+import { secretDB } from "../secret/secret";
+import { varDB } from "../var/var";
 
 export async function putCommand(url: string, data: any, opts: any) {
   const parse_as_json = opts.json ? true : false;
@@ -9,9 +11,12 @@ export async function putCommand(url: string, data: any, opts: any) {
   let end_time;
 
   try {
+    const secrets = secretDB.data.secrets;
+    const variables = varDB.data.vars;
+    const parsed_data = parseRequestData(data, secrets, variables);
     const response = await axios.put(
       url,
-      parse_as_json ? JSON.parse(data) : data,
+      parse_as_json ? JSON.parse(parsed_data) : parsed_data,
     );
 
     end_time = Date.now();

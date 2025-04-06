@@ -56,3 +56,34 @@ export function saveRequest(
     }),
   );
 }
+
+export function fillWithSecret(
+  str: string,
+  secret: string,
+  value: string,
+): string {
+  return str.replace(RegExp(`\.{{[ ]*\.secrets\.${secret}[ ]*}}`, "g"), value);
+}
+
+export function fillWithVariable(
+  str: string,
+  name: string,
+  value: string,
+): string {
+  return str.replace(RegExp(`\.{{[ ]*\.vars\.${name}[ ]*}}`, "g"), value);
+}
+
+export function parseRequestData(
+  data: string,
+  secrets: { [key: string]: string },
+  variables: { [key: string]: string },
+): string {
+  var parsed_data = data;
+  for (const key in secrets) {
+    parsed_data = fillWithSecret(parsed_data, key, secrets[key]);
+  }
+  for (const key in variables) {
+    parsed_data = fillWithVariable(parsed_data, key, variables[key]);
+  }
+  return parsed_data;
+}
