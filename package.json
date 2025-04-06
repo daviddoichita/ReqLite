@@ -1,5 +1,5 @@
 {
-  "name": "reql",
+  "name": "reqlite",
   "version": "0.0.1",
   "description": "A lightweight CLI to test HTTP/HTTPS APIs",
   "main": "index.ts",
