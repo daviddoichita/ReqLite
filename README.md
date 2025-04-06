@@ -25,8 +25,8 @@ A VERY lightweight and user-friendly CLI to test HTTP/HTTPS APIs in a fast manne
     ├── secret # TODO
     │   ├── get
     │   └── set
-    ├── export # TODO 
-    └── import # TODO
+    ├── export
+    └── import
 ```
 - `req`: Send HTTP/HTTPS requests.
     - `get`: Send a GET request.
